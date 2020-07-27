@@ -1,0 +1,55 @@
+#implementing queue using list
+max_size=int(input("enter size of queue"))
+queue=[]    #create an empty queue
+for i in range(max_size):
+    queue.append(-1)
+front=-1
+rear=-1
+
+def enqueue(element):
+    global front,rear,queue
+    if((rear+1)%max_size==front):
+        print("sorry queue full")
+    elif(front==-1):
+        rear=0
+        front=0
+        queue[0]=element
+    else:
+        rear=(rear+1)%max_size
+        queue[rear]=element
+def dequeue():
+    global front,rear,queue
+    if(front==-1):
+        print("sorry queue empty")
+    elif(front==rear):
+        x=queue[front]
+        queue[front]=-1
+        front=-1
+        rear=-1
+        print("element dequeued= ",x)
+    else:
+        x=queue[front]
+        queue[front]=-1
+        print("element dequeued= ", x)
+        front=(front+1)%max_size
+
+while(1):
+    print("Menu")
+    print("1.Enqueue")
+    print("2.Dequeue")
+    print("3.Display queue")
+    print("4.exit")
+    op=int(input())
+    if op==1:
+        element=int(input("enter element to be inserted"))
+        enqueue(element)
+    elif op==2:
+        dequeue()
+    elif op==3:
+        print("queue:")
+        for i in range(max_size):
+            print(queue[i],end=" ")
+    elif op==4:
+        break
+    else:
+        print("wrong selection")
