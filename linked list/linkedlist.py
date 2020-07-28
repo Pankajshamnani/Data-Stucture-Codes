@@ -78,7 +78,9 @@ node2=Node(20)
 node3=Node(30)
 node1.next=node2
 node2.next=node3
-
+# linkedlist.insertBeginning(1000)
+# linkedlist.insertAfterNode(node2,2000)
+# linkedlist.insertEnd(1000)
 linkedlist.deleteNode(20)
 linkedlist.printLinkedList()
 
